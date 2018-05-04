@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <p:panel id="pnlRegistro" header="Registro de Numeros">
+            <h:form>
+                
+                <p:dataTable id="dtTable" var="registro1" value="#{registroFormBean.registro}">
+                    <p:column id="columReg">
+                        <p:inputNumber id="inpNum" value="#{registroFormBean.registro.numIngresado}"/>
+                        <p:commandButton id="btnIngreso" value="Agregar" actionListener="#{registroFormBean.registro.ingresarNumero()}" update="dtTable"/>
+                    </p:column>
+                    <p:column id="columNum" headerText="Lista de Numeros">
+                        <h:outputText id="otpLista"  value="#{registroFormBean.registro.registroNum}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>
+
